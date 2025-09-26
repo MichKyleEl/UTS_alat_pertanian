@@ -1,20 +1,39 @@
 package com.example.uts_alat_pertanian
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity() {
+    private lateinit var appBarConfiguration: AppBarConfiguration
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        setSupportActionBar(findViewById(R.id.toolbar))
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+                    as NavHostFragment
+        val navController = navHostFragment.navController
+        //Creating top level destinations
+        //and adding them to the draw
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.listFragment, R.id.catalogueFragment, R.id.orderFragment, R.id.profileFragment
+            ), findViewById(R.id.drawer_layout)
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        findViewById<NavigationView>(R.id.nav_view)
+            ?.setupWithNavController(navController)
+        // Added this part only
+        findViewById<BottomNavigationView>(R.id.bottom_nav)
+            ?.setupWithNavController(navController)
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) ||
+                super.onSupportNavigateUp()
     }
 }
