@@ -1,53 +1,50 @@
 package com.example.uts_alat_pertanian
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.Navigation
 
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
+/**
+ * A simple [Fragment] subclass.
+ * Use the [ListFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
 class ListFragment : Fragment() {
-
-    private lateinit var rvRecommendation: RecyclerView
-    private lateinit var adapter: CatalogueAdapter
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_list, container, false)
-
-        // Setup RecyclerView Rekomendasi
-        rvRecommendation = view.findViewById(R.id.rvRecommendation)
-        rvRecommendation.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
-        val recommendedProducts = listOf(
-            Product("Tractor", "Rp 75.000.000", R.drawable.tractor, "Modern agricultural tractor"),
-            Product("Steel Hoe", "Rp 85.000", R.drawable.cangkul, "Strong and durable hoe"),
-            Product("Sprayer Machine", "Rp 450.000", R.drawable.mesin_semprot, "Agricultural sprayer machine")
-        )
-
-        adapter = CatalogueAdapter(recommendedProducts) { product ->
-            navigateToDetail(product)
-        }
-        rvRecommendation.adapter = adapter
-
-        return view
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_list, container, false)
     }
-
-    private fun navigateToDetail(product: Product) {
-        val bundle = Bundle().apply {
-            putString(DetailFragment.PRODUCT_NAME, product.name)
-            putString(DetailFragment.PRODUCT_PRICE, product.price)
-            putInt(DetailFragment.PRODUCT_IMAGE, product.imageRes)
-            putString(DetailFragment.PRODUCT_DESC, product.description)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val coffeeList = listOf<View>(
+            view.findViewById(R.id.tractor_title),
+            view.findViewById(R.id.excavator_title)
+        )
+        coffeeList.forEach{ coffee ->
+            val fragmentBundle = Bundle()
+            fragmentBundle.putInt(COFFEE_ID, coffee.id)
+            coffee.setOnClickListener(
+                Navigation.createNavigateOnClickListener(
+                    R.id.action_listFragment_to_detailFragment,
+                    fragmentBundle)
+            )
         }
-
-        findNavController().navigate(R.id.detailFragment, bundle)
+    }
+    companion object {
+        const val COFFEE_ID = "COFFEE_ID"
     }
 }

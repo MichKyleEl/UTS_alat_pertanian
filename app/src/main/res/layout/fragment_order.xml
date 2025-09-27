@@ -25,6 +25,7 @@
                 android:gravity="center_vertical"
                 android:paddingHorizontal="8dp"
                 android:clipToPadding="false">
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -49,6 +50,7 @@
                         android:hyphenationFrequency="none"
                         android:includeFontPadding="false"/>
                 </LinearLayout>
+
                 <View
                     android:id="@+id/connector1"
                     android:layout_width="14dp"
