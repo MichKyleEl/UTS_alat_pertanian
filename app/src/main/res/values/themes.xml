@@ -1,20 +1,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
+    <!-- Base Theme -->
     <style name="Base.Theme.UTS_alat_pertanian" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Warna utama -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Warna sekunder -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/green</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
-    <style name="Theme.NavigationDrawer.NoActionBar"
-        parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Theme untuk MainActivity (drawer) -->
+    <style name="Theme.NavigationDrawer.NoActionBar" parent="Base.Theme.UTS_alat_pertanian">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="Theme.NavigationDrawer.AppBarOverlay"
-        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="Theme.NavigationDrawer.PopupOverlay"
-        parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- Overlay khusus action bar & popup -->
+    <style name="Theme.NavigationDrawer.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar" />
+    <style name="Theme.NavigationDrawer.PopupOverlay" parent="ThemeOverlay.Material3.Light" />
+
+    <!-- Theme global -->
     <style name="Theme.UTS_alat_pertanian" parent="Base.Theme.UTS_alat_pertanian" />
 
 </resources>
