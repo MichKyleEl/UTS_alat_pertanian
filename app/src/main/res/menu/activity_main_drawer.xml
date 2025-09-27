@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <group android:checkableBehavior="single">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
         <item
-            android:id="@+id/homeFragment"
+            android:id="@+id/listFragment"
             android:icon="@drawable/home_menu"
-            android:title="Home" />
-
+            android:title="@string/bottom_menu_home" />
+    </group>
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/profileFragment"
             android:icon="@drawable/profile_menu"
-            android:title="Profile" />
+            android:title="@string/bottom_menu_profile" />
     </group>
 </menu>
