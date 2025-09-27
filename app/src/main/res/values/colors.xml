@@ -5,4 +5,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_brown">#C2663C</color>
     <color name="green">#4CAF50</color>
+    <color name="brand_primary">#2E7D32</color>
+    <color name="brand_muted">#9E9E9E</color>
 </resources>
