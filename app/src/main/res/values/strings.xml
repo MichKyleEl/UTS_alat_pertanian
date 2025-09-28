@@ -1,25 +1,36 @@
 <resources>
-    <string name="app_name">UTS_alat_pertanian</string>
+    <string name="app_name">UTS Alat Pertanian</string>
 
+    <!-- App Title -->
     <string name="app_title">FarmEquip</string>
-    <string name="nav_header_desc">FarmEquip</string>
 
-    <string name="product">Machinery</string>
-    <string name="product_favorites">Favorite Products</string>
+    <!-- Toolbar titles -->
+    <string name="title_home">Beranda</string>
+    <string name="title_catalogue">Katalog</string>
+    <string name="title_order">Pesanan</string>
+    <string name="title_profile">Profil</string>
+    <string name="title_detail">Detail Produk</string>
+    <string name="title_cart">Keranjang</string>
 
-    <string name="tractor_title">Tractor</string>
-    <string name="tractor_desc">Espresso poured on a vanilla ice cream. Served in a</string>
-    <string name="tractor_price">Rp50.000.000</string>
-
-    <string name="excavator_title">Tractor</string>
-    <string name="excavator_desc">Espresso poured on a vanilla ice cream. Served in a</string>
-    <string name="excavator_price">Rp75.000.000</string>
-
+    <!-- Bottom Navigation -->
     <string name="bottom_menu_home">Home</string>
     <string name="bottom_menu_catalogue">Catalogue</string>
     <string name="bottom_menu_order">Order</string>
     <string name="bottom_menu_profile">Profile</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Produk -->
+    <string name="tractor_title">Farm Tractor</string>
+    <string name="tractor_price">Rp 25.000.000</string>
+    <string name="tractor_desc">Modern agricultural tractor with 8HP power, suitable for wet and dry rice fields.</string>
+
+    <string name="excavator_title">Mini Excavator</string>
+    <string name="excavator_price">Rp 75.000.000</string>
+    <string name="excavator_desc">Compact excavator for narrow land work and light construction.</string>
+
+    <!-- Drawer / Header -->
+    <string name="nav_header_desc">Logo aplikasi</string>
+
+    <!-- Menu Items -->
+    <string name="menu_cart">Cart</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
