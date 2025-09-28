@@ -20,6 +20,7 @@
     <style name="Theme.NavigationDrawer.NoActionBar" parent="Base.Theme.UTS_alat_pertanian">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="toolbarStyle">@style/Widget.UTS.Toolbar</item>
     </style>
 
     <!-- Overlay khusus action bar & popup -->
@@ -28,5 +29,18 @@
 
     <!-- Theme global -->
     <style name="Theme.UTS_alat_pertanian" parent="Base.Theme.UTS_alat_pertanian" />
+
+    <!-- Judul toolbar seragam: putih + bold -->
+    <style name="AppToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Style toolbar global (MaterialToolbar) -->
+    <style name="Widget.UTS.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/AppToolbarTitle</item>
+        <item name="navigationIconTint">@android:color/white</item>
+    </style>
+
 
 </resources>

@@ -5,12 +5,12 @@
     <string name="app_title">FarmEquip</string>
 
     <!-- Toolbar titles -->
-    <string name="title_home">Beranda</string>
-    <string name="title_catalogue">Katalog</string>
-    <string name="title_order">Pesanan</string>
-    <string name="title_profile">Profil</string>
-    <string name="title_detail">Detail Produk</string>
-    <string name="title_cart">Keranjang</string>
+    <string name="title_home">Home</string>
+    <string name="title_catalogue">Catalogue</string>
+    <string name="title_order">Order</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_detail">Detail</string>
+    <string name="title_cart">Cart</string>
 
     <!-- Bottom Navigation -->
     <string name="bottom_menu_home">Home</string>

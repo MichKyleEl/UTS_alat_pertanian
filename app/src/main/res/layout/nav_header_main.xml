@@ -2,36 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
-    android:gravity="bottom"
-    android:padding="16dp"
-    android:background="@color/green">
+    android:layout_height="wrap_content"
+    android:background="@color/green"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="16dp">
 
     <ImageView
+        android:id="@+id/header_avatar"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:src="@mipmap/ic_launcher_round"
-        android:contentDescription="Profile"
         android:scaleType="centerCrop"
-        android:background="@drawable/circle_background"
-        android:clipToOutline="true" />
+        android:src="@mipmap/ic_launcher_round" />
 
     <TextView
         android:id="@+id/header_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Name"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
         android:paddingTop="8dp"
-        android:textSize="16sp" />
+        android:text="User Name"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/header_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="user@email.com"
-        android:textColor="@android:color/white"
-        android:textSize="14sp" />
-
+        android:textSize="14sp"
+        android:textColor="@android:color/white" />
 </LinearLayout>
