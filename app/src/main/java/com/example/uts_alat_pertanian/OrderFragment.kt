@@ -19,10 +19,15 @@ class OrderFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+
     ): View? = inflater.inflate(R.layout.fragment_order, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<ImageView>(R.id.btnMenu)?.setOnClickListener {
+            (requireActivity() as MainActivity).openDrawer()
+        }
 
         val step1Icon: ImageView = view.findViewById(R.id.step1Icon)
         val step2Icon: ImageView = view.findViewById(R.id.step2Icon)

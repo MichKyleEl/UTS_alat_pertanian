@@ -29,6 +29,10 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        view.findViewById<ImageView>(R.id.btnMenu)?.setOnClickListener {
+            (requireActivity() as MainActivity).openDrawer()
+        }
+
         val groupView: View = view.findViewById(R.id.groupViewMode)
         val imgAvatar: ImageView = view.findViewById(R.id.imgAvatar)
         val tvName: TextView = view.findViewById(R.id.tvName)
