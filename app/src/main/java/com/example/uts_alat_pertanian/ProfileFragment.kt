@@ -8,12 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.edit
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.uts_alat_pertanian.api.RetrofitClientProfile
+import com.example.uts_alat_pertanian.model.UserResponse
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
-import androidx.core.widget.addTextChangedListener
-import androidx.core.content.edit
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ProfileFragment : Fragment() {
 
@@ -88,7 +94,7 @@ class ProfileFragment : Fragment() {
         btnEdit.setOnClickListener { showEditMode(prefill = true) }
 
         btnClear.setOnClickListener {
-            prefs.edit {clear() }
+            prefs.edit { clear() }
             showEditMode(prefill = false)
         }
 
@@ -97,7 +103,7 @@ class ProfileFragment : Fragment() {
         btnSave.setOnClickListener {
             val name = etName.text?.toString()?.trim().orEmpty()
             val email = etEmail.text?.toString()?.trim().orEmpty()
-            val avatar = etAvatarUrl.text?.toString()?.trim().orEmpty()
+            val avatarUrl = etAvatarUrl.text?.toString()?.trim().orEmpty()
 
             if (name.isBlank() || email.isBlank()) {
                 if (name.isBlank()) etName.error = "Required"
@@ -105,12 +111,37 @@ class ProfileFragment : Fragment() {
                 return@setOnClickListener
             }
 
+            // simpan ke SharedPreferences
             prefs.edit {
                 putString("name", name)
                 putString("email", email)
-                putString("avatar", avatar)
+                putString("avatar", avatarUrl)
             }
-            showViewMode()
+
+            RetrofitClientProfile.instance.saveUser(name, email, avatarUrl)
+                .enqueue(object : Callback<UserResponse> {
+                    override fun onResponse(
+                        call: Call<UserResponse>,
+                        response: Response<UserResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            val body = response.body()
+                            if (body != null && body.success) {
+                                Toast.makeText(context, "Save Success", Toast.LENGTH_SHORT).show()
+                            } else {
+                                Toast.makeText(context, "Save Failed", Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            Toast.makeText(context, "HTTP Error: ${response.code()}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+                        Toast.makeText(context, "Network error: ${t.message}", Toast.LENGTH_SHORT).show()
+                    }
+                })
+
+
         }
 
         val hasProfile = !TextUtils.isEmpty(prefs.getString("name", "")) ||

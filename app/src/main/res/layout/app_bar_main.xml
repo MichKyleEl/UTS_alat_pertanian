@@ -15,6 +15,7 @@
         app:title="@string/app_title"
         app:titleTextColor="@color/white" />
 
+
     <!-- NavHostFragment -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"

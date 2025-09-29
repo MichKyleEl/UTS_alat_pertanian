@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
 
@@ -111,19 +112,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        // menuInflater.inflate(R.menu.toolbar_menu, menu) // optional
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
         return true
     }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_cart -> {
+                Log.d("MAIN", "Cart button clicked")
                 navController.navigate(R.id.cartFragment)
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+
+
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, appBarConfiguration)

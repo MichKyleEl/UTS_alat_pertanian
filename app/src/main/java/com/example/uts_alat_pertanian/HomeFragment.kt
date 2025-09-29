@@ -12,6 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.lifecycle.lifecycleScope
+import com.example.uts_alat_pertanian.api.RetrofitClient
+import kotlinx.coroutines.launch
+
+
 
 class HomeFragment : Fragment() {
 
@@ -19,6 +24,10 @@ class HomeFragment : Fragment() {
     private lateinit var rvTerbaru: RecyclerView
     private lateinit var recommendationAdapter: RecommendationAdapter
     private lateinit var terbaruAdapter: RecommendationAdapter
+
+    private lateinit var weatherText: TextView
+    private val apiKey = "YOUR_API_KEY"
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
@@ -60,6 +69,9 @@ class HomeFragment : Fragment() {
         rvTerbaru.adapter = terbaruAdapter
 
         setupCategoryClicks(view)
+        weatherText = view.findViewById(R.id.weather_info)
+        loadWeather("Tangerang")
+
         return view
     }
 
@@ -89,4 +101,17 @@ class HomeFragment : Fragment() {
         }
         findNavController().navigate(R.id.detailFragment, bundle)
     }
+
+    private fun loadWeather(city: String) {
+        lifecycleScope.launch {
+            try {
+                val response = RetrofitClient.weatherService.getWeather("78ac852c9f43470c84995510252809", city)
+                val info = "${response.location.name}: ${response.current.temp_c}°C, ${response.current.condition.text}"
+                weatherText.text = info
+            } catch (e: Exception) {
+                weatherText.text = "Failed to load weather"
+            }
+        }
+    }
+
 }
