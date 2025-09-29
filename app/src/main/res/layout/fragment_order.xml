@@ -5,171 +5,210 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:paddingTop="70dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingBottom="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardUseCompatPadding="true"
-            android:padding="16dp">
+            android:orientation="vertical"
+            android:background="@color/green"
+            android:padding="16dp"
+            android:paddingTop="24dp">
 
             <LinearLayout
-                android:id="@+id/stepContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="8dp"
-                android:clipToPadding="false">
-                <LinearLayout
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/btnMenu"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_menu"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="Menu Icon"/>
+
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
-                    <ImageView
-                        android:id="@+id/step1Icon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_check_circle_24"/>
-                    <TextView
-                        android:id="@+id/step1Label"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Order Confirmed"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:breakStrategy="balanced"
-                        android:hyphenationFrequency="none"
-                        android:includeFontPadding="false"/>
-                </LinearLayout>
-                <View
-                    android:id="@+id/connector1"
-                    android:layout_width="14dp"
-                    android:layout_height="2dp"
-                    android:layout_marginHorizontal="6dp"
-                    android:background="@color/brand_muted"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
-                    <ImageView
-                        android:id="@+id/step2Icon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_package_24"/>
-                    <TextView
-                        android:id="@+id/step2Label"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Order Processed"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:breakStrategy="balanced"
-                        android:hyphenationFrequency="none"
-                        android:includeFontPadding="false"/>
-                </LinearLayout>
-
-                <View
-                    android:id="@+id/connector2"
-                    android:layout_width="14dp"
-                    android:layout_height="2dp"
-                    android:layout_marginHorizontal="6dp"
-                    android:background="@color/brand_muted"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
-                    <ImageView
-                        android:id="@+id/step3Icon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_local_shipping_24"/>
-                    <TextView
-                        android:id="@+id/step3Label"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Order Delivered"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:breakStrategy="balanced"
-                        android:hyphenationFrequency="none"
-                        android:includeFontPadding="false"/>
-                </LinearLayout>
-
-                <View
-                    android:id="@+id/connector3"
-                    android:layout_width="14dp"
-                    android:layout_height="2dp"
-                    android:layout_marginHorizontal="6dp"
-                    android:background="@color/brand_muted"/>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_horizontal">
-                    <ImageView
-                        android:id="@+id/step4Icon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_home_24"/>
-                    <TextView
-                        android:id="@+id/step4Label"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="Order has Arrived"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:breakStrategy="balanced"
-                        android:hyphenationFrequency="none"
-                        android:includeFontPadding="false"/>
-                </LinearLayout>
+                    android:text="Order"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"/>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
-        <TextView
-            android:text="Order Activity"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvTimeline"
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:nestedScrollingEnabled="false"/>
+            android:layout_height="wrap_content">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMarkReceived"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Next Status"/>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardUseCompatPadding="true"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:id="@+id/stepContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="8dp"
+                    android:clipToPadding="false">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+                        <ImageView
+                            android:id="@+id/step1Icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_check_circle_24"/>
+                        <TextView
+                            android:id="@+id/step1Label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Order Confirmed"
+                            android:textSize="12sp"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:breakStrategy="balanced"
+                            android:hyphenationFrequency="none"
+                            android:includeFontPadding="false"/>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/connector1"
+                        android:layout_width="14dp"
+                        android:layout_height="2dp"
+                        android:layout_marginHorizontal="6dp"
+                        android:background="@color/brand_muted"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+                        <ImageView
+                            android:id="@+id/step2Icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_package_24"/>
+                        <TextView
+                            android:id="@+id/step2Label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Order Processed"
+                            android:textSize="12sp"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:breakStrategy="balanced"
+                            android:hyphenationFrequency="none"
+                            android:includeFontPadding="false"/>
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/connector2"
+                        android:layout_width="14dp"
+                        android:layout_height="2dp"
+                        android:layout_marginHorizontal="6dp"
+                        android:background="@color/brand_muted"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+                        <ImageView
+                            android:id="@+id/step3Icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_local_shipping_24"/>
+                        <TextView
+                            android:id="@+id/step3Label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Order Delivered"
+                            android:textSize="12sp"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:breakStrategy="balanced"
+                            android:hyphenationFrequency="none"
+                            android:includeFontPadding="false"/>
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/connector3"
+                        android:layout_width="14dp"
+                        android:layout_height="2dp"
+                        android:layout_marginHorizontal="6dp"
+                        android:background="@color/brand_muted"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal">
+                        <ImageView
+                            android:id="@+id/step4Icon"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_home_24"/>
+                        <TextView
+                            android:id="@+id/step4Label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="Order has Arrived"
+                            android:textSize="12sp"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:breakStrategy="balanced"
+                            android:hyphenationFrequency="none"
+                            android:includeFontPadding="false"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:text="Order Activity"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTimeline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnMarkReceived"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Next Status"/>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
